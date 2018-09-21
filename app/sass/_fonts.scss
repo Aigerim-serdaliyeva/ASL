@@ -1,0 +1,8 @@
+@import "_mixins/font-face";
+
+@include font-face("HelveticaNeueCyr", "../fonts/HelveticaNeueCyr/Regular/HelveticaNeueCyr-Regular" normal);
+@include font-face("HelveticaNeueCyr", "../fonts/HelveticaNeueCyr/Black/HelveticaNeueCyr-Black", 900);
+@include font-face("HelveticaNeueCyr", "../fonts/HelveticaNeueCyr/Bold/HelveticaNeueCyr-Bold", 700);
+@include font-face("HelveticaNeueCyr", "../fonts/HelveticaNeueCyr/Medium/HelveticaNeueCyr-Medium", 500);
+@include font-face("SegoeUI", "../fonts/SegoeUI/SegoeUIRegular/SegoeUIRegular", normal);
+
