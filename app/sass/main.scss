@@ -220,11 +220,13 @@
     margin: 0 auto 40px;
     text-align: center;
     display: inline-block;
-    padding: 8px;
+    padding: 8px 8px 8px 20px;
 
     &--back {
       color: #fff;
       background-color: $accent;
+      -webkit-clip-path: polygon(10px 0, 100% 0, 100% 100%, 0% 100%);
+      clip-path: polygon(10px 0, 100% 0, 100% 100%, 0% 100%);
     }
   }
 }
@@ -271,6 +273,7 @@
     width: 25%;
     &__img {
       margin-right: 12px;
+      flex-shrink: 0;
     }
     &__title {
       font-family: SegoeUI, serif;
@@ -280,6 +283,11 @@
 }
 
 .s-service {
+
+  .carousel-service {
+    display: none;
+  }
+
   &__title {
     font-size: 18px;
     font-weight: bold;
@@ -302,6 +310,7 @@
   &__content2 {
     display: flex;
     justify-content: center;
+    margin-bottom: 40px;
     .service {
       margin-right: 45px;
       &:last-child {
@@ -314,6 +323,7 @@
     width: 185px;
     box-shadow: 0px 2px 10px 0px rgba(160, 160, 160, 0.76);
     position: relative;
+    flex-shrink: 0;
     
     &__img {}
 
@@ -330,7 +340,12 @@
       bottom: -20px;
       left: 50%;
       transform: translateX(-50%);
-      width: 155px;
+      max-width: 155px;
+      width: 100%;
+      &:active {
+        top: auto;
+        bottom: -19px;
+      }
     }
   }
 }
@@ -439,6 +454,10 @@
     }
   }
 
+  .carousel-company {
+    display: none;
+  }
+
   .advantage {
     max-width: 280px;
     margin-bottom: 30px;
@@ -458,6 +477,7 @@
       color: $accent;
       text-transform: uppercase;
       margin-bottom: 15px;
+      flex-grow: 1;
     }
     &__text {
       font-size: 12px;
@@ -472,8 +492,10 @@
     min-width: 430px;
     padding-left: 10px;
     padding-right: 10px;
-    top: 130px;
-    transform: none;
+    // top: 130px;
+    // transform: none;
+    top: 50%;
+    transform: translateY(-50%);
     right: 0;
     z-index: 2;
 
@@ -551,11 +573,16 @@
   .kinds {
     text-align: center;
     position: relative;
+    margin-bottom: 30px;
     .button {
       position: absolute;
       bottom: -20px;
       left: 50%;
       transform: translateX(-50%);
+      &:active {
+        top: auto;
+        bottom: -19px;
+      }
     }
   }
 }
@@ -608,6 +635,10 @@
       bottom: -20px;
       left: 50%;
       transform: translateX(-50%);
+      &:active {
+        top: auto;
+        bottom: -19px;
+      }
     }
   }
 }
@@ -616,25 +647,117 @@
  
 
   &-thanks {
-    padding: 200px 0 100px 0;
-    flex-grow: 1;
-      
-    &__title {
-      color: $accent;
-      font-size: 48px;
-      font-weight: normal;
-      margin-bottom: 30px;
-    }
-
-    &__text {
-      font-size: 24px;
-      margin: 0 0 125px;
-    }
+    padding-bottom: 0;
   
     &__link {
+      font-weight: 500;
       text-decoration: underline;
-      color: $accent;
+      color: #fff;
+      position: absolute;
+      right: 90px;
+      bottom: 110px;
     }
+    &__link2 {
+      font-weight: 500;
+      text-decoration: underline;
+      color: #fff;
+      display: block;
+      margin-top: 30px;
+      display: none;
+    }
+  }
+}
+
+.question-modal {
+  max-width: 476px;
+  padding: 25px 18px;
+  box-shadow: 0px 2px 10px 0px rgba(160, 160, 160, 0.76);
+  min-height: 370px;
+  position: relative;
+  &::before {
+    content: "";
+    position: absolute;
+    left: -60px;
+    top: 0;
+    bottom: 0;
+    right: 100%;
+    background-color: rgba($orange, .7);
+  }
+
+  .question {
+    &__num {
+      font-size: 16px;
+      font-weight: 500;
+      color: $gray;
+      margin-bottom: 15px;
+    }
+    &__text {
+      font-size: 17px;
+      font-weight: bold;
+      color: $orange;
+      margin-bottom: 15px;
+      span {
+        font-weight: 300;
+        font-style: italic;
+      }
+    }
+    .perehod {
+      font-weight: 500;
+      color: $accent;
+      text-decoration: underline;
+      text-align: right;
+      display: block;
+      margin-top: 25px;
+    }
+  }
+
+  .label {
+    color: $gray;
+    font-weight: 500;
+    font-style: 16px;
+    span {
+      margin-right: 10px;
+      &.otvet1 {
+        font-size: 16px;
+        width: 58px;
+      }
+    }
+    .ukazat {
+      background-color: #cc6a22;
+      padding: 10px 15px;
+      max-width: 220px;
+      width: 100%;
+      
+      &::-webkit-input-placeholder {
+        font-style: italic;
+      }
+      
+      &::-moz-placeholder {
+        font-style: italic;
+      }
+      
+      &:-ms-input-placeholder {
+        font-style: italic;
+      }
+    }
+  }
+
+  .form {
+    &__info {
+      font-size: 12px;
+    }
+    &__content {
+      max-width: 225px;
+    }
+    .button {
+      position: relative;
+      max-width: 225px;
+      bottom: 0;
+    }
+  }
+
+  .remodal__title {
+    margin-bottom: 35px;
   }
 }
 

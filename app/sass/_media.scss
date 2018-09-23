@@ -5,6 +5,37 @@
 
 // ≥1200px
 @include media-breakpoint-down(lg) {
+
+  .header {
+    .logo {
+      padding: 10px;
+    }
+  }
+
+  .main-menu {
+    ul {
+      li {
+        margin-right: 20px;
+      }
+    }
+  }
+
+  .s-service {
+    &__content, &__content2 {
+      flex-wrap: wrap;
+    }
+    .service {
+      margin-bottom: 40px;
+    }
+  }
+
+  .s-advantage {
+    &__aside {
+      &::after {
+        right: calc(-50vw + 960px/2 - 10px);
+      }
+    }
+  }
 	
 }
 
@@ -16,6 +47,10 @@
 
   .header {
     padding: 5px 0;
+    background-color: $accent;
+    &__title {
+      color: #fff;
+    }
   }
 
   .footer {
@@ -32,9 +67,9 @@
 
 	.main-menu {
     display: none;
-    background-color: #fff;
+    background-color: $accent;
     position: fixed;
-    top: 89px;
+    top: 54px;
     left: 0;
     right: 0;
     text-align: left;
@@ -58,6 +93,83 @@
 		}
   }    
 
+  .s-main {
+    .perevozki {
+      &__img {
+        width: 30px;
+      }
+      &__title {
+        font-size: 14px;
+      }
+    }
+  }
+
+  .s-service {
+    &__content, &__content2 {
+      // display: none;
+    }
+    .carousel-service {
+      display: block;
+      margin-bottom: 20px;
+    }
+    .service {
+      margin-bottom: 40px;
+      margin-right: 20px;
+    }
+  }
+
+  .s-advantage {
+    &__title {
+      font-size: 18px;
+      margin-bottom: 25px;
+    }
+    &__content {
+      flex-direction: column;
+    }
+    &__block {
+      padding: 30px 0;
+      &::after {
+        content: "";
+        position: absolute;
+        background-color: #e1e1e1;
+        top: 0;
+        bottom: 0;
+        left: 100%;
+        right: -1000px;
+      }
+    }
+    &__aside {
+      width: 100%;
+      margin-top: 20px;
+      &::after {
+        // width: 100%;
+        display: none;
+      }
+    }
+    .advantage {
+      width: 48%;
+      margin-right: 0;
+      &__content {
+        justify-content: space-between;
+      }
+      &__title {
+        font-size: 16px;
+      }
+    }
+    .quiz {
+      position: relative;
+      box-shadow: 0px 2px 10px 0px rgba(160, 160, 160, 0.76);
+      top: auto;
+      right: auto;
+      transform: none;
+      margin: 0 auto;
+      &::before {
+        display: none;
+      }
+    }
+    
+  }
+
   .s-marka {
     &__content {
       display: none;
@@ -66,10 +178,35 @@
       display: block;
     }
   }
+
+  .s-thanks {
+    &__link {
+      display: none;
+    }
+    &__link2 {
+      display: block;
+    }
+  }
 }
 
 // ≥768px
 @include media-breakpoint-down(sm) {  
+
+  .header {
+    &__title {
+      display: none;
+    }
+    &__top {
+      margin-bottom: 0;
+    }
+    &__language {
+      padding: 0;
+      font-size: 12px;
+      li {
+        margin-right: 3px;
+      }
+    }
+  }
 
   .form {
     &--horizontal {
@@ -98,21 +235,94 @@
     max-width: 200px;
   }
 
-  .header {
-    .grow {
-      display: block;
+  .section {
+    &-title {
+      font-size: 20px;
+    }      
+  }
+
+  .quiz {
+    position: relative;
+    box-shadow: 0px 2px 10px 0px rgba(160, 160, 160, 0.76);
+    transform: none;
+    margin: 0 auto;
+    top: 0;
+    right: auto;
+    &::before {
+      display: none;
     }
   }
 
-  .section {
-    &-title {
-      font-size: 24px;
-    }      
+  .s-main {
+    padding-top: 78px;
+    &__title {
+      font-size: 18px;
+    }
+    &__wrapper {
+      background: transparent;
+    }
+    &__block {
+      margin: 0 -15px;
+      min-height: 200px;
+    }
+    &__content {
+      margin-bottom: 20px;
+    }
+    &__perevozki {
+      flex-wrap: wrap;
+      .perevozki {
+        width: 50%;
+      }
+    }
+  }
+
+  .s-advantage {
+    &__title {
+      text-align: center;
+    }
+
+    &__map {
+      right: 0;
+      position: relative;
+      top: 0;
+      transform: none;
+    }
+
+    .advantage {
+      width: 100%;
+      margin: 0 auto 20px !important;
+    }
+
+    .company {
+      &__content {
+        .company__img {
+          display: none;
+        }
+      }
+      &__block {
+        display: none;
+      }
+    }
+
+    .carousel-company {
+      display: block;
+      .company__img {
+        display: block;
+      }
+    }
   }
 
   .s-kinds {
     .kinds {
       margin-bottom: 35px;
+    }
+  }
+
+  .s-contact {
+    margin-bottom: 40px;
+    .contact {
+      position: static;
+      margin: 20px auto 0;
     }
   }
 }
@@ -121,6 +331,53 @@
 @include media-breakpoint-down(xs) {
   .call-me {
     display: flex;
+  }
+
+  .header {
+    .logo {
+      width: 160px;
+      padding: 0;
+    }
+    .hamburger {
+      margin-left: 10px;
+    }
+  }
+
+  .s-main {
+    padding-top: 54px;
+    
+    .perevozki {
+      padding: 10px;
+      &__img {
+        width: 25px;
+        margin-right: 5px;
+        flex-shrink: 0;
+      }
+      &__title {
+        font-size: 14px;
+      }
+    }
+  }
+
+  .s-service {
+    &__content, &__content2 {
+      justify-content: space-between;
+      margin: 0 -10px;
+    }
+    .service {
+      width: 49%;
+      margin-right: 0;
+      &__title {
+        font-size: 14px;
+      }
+    }
+  }
+
+  .s-advantage {
+    .quiz--form {
+      min-width: auto;
+      width: 100%;
+    }
   }
 
   .s-marka {
@@ -137,7 +394,6 @@
 
   .s {
     &-thanks {
-      padding: 150px 0 50px;
       
       &-title {
         font-size: 30px;
@@ -147,6 +403,13 @@
         font-size: 16px;
         margin-bottom: 40px;
       }
+    }
+  }
+
+  .question-modal {
+    min-height: 250px;
+    &::before {
+      display: none;
     }
   }
 }

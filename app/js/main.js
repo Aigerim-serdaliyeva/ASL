@@ -5,7 +5,7 @@ $(document).ready(function () {
   var $html = $("html, body");
   var $header = $(".header");
   var $menu = $(".main-menu");
-  var headerHeight = 99;
+  var headerHeight = 107;
   var $hamburger = $(".hamburger");
 
   // забираем utm из адресной строки и пишем в sessionStorage, чтобы отправить их на сервер при form submit
@@ -22,7 +22,7 @@ $(document).ready(function () {
   new WOW({ mobile: false }).init();
 
   if ($wnd.width() < 992) {
-    headerHeight = 89;
+    headerHeight = 54;
   }
 
   // jquery.maskedinput для ПК и планшет (мобильном не подключаем)
@@ -158,6 +158,96 @@ $(document).ready(function () {
     } else {
       e.preventDefault();
     }
+  });
+
+
+  var $questionModal = $(".question-modal");
+  $(".perehod").click( function(e) {
+    e.preventDefault();
+    var $this = $(this);
+
+    var $show = $questionModal.find("#" + $this.data("show"));
+    var $hide = $questionModal.find("#" + $this.data("hide"));
+
+    var $question = $this.closest(".question");
+    var variantSelected = false;
+    var drugoeSelected = false;
+
+    var $variants = $question.find('.checkbox [type=radio], .checkbox [type=checkbox]');
+    $variants.each(function() {
+      var $input = $(this);
+      if ($input.prop('checked')) {
+        // Если выбран другое, то пользователь обьязан указать свой вариант
+        if ($input.hasClass("drugoe")) {
+          drugoeSelected = true;
+          var vawVariant = $input.closest(".checkbox").siblings(".ukazat").val();
+          if (vawVariant && vawVariant.length > 0) {
+            variantSelected = true;
+          }
+        } else {
+          variantSelected = true;
+        }
+      }
+    });
+
+    var errorText = "";
+
+    if ($variants.length > 0 && !variantSelected) {
+      errorText = drugoeSelected ? "Укажите ваш вариант" : "Выберите один из вариантов";
+    }
+
+    $requireds = $question.find("input[required], textarea[required]");
+    $requireds.each(function() {
+      var val = $(this).val();
+      if (!val) {
+        errorText = "Заполните все поля";
+      }
+    });
+
+    if (errorText) {
+      $question.addClass("has-error");
+      $question.find(".question__error").html(errorText);
+      return;
+    }
+
+    $show.removeClass("d-none");
+    $hide.addClass("d-none");
+  });
+
+  $(document).on('closing', '.question-modal', function (e) {
+    $questionModal.find('.question')
+    .removeClass('has-error')
+    .addClass('d-none')
+    .filter('#question-1')
+    .removeClass('d-none');
+  });
+
+  $(".carousel-service").owlCarousel({
+    loop: false,
+    smartSpeed: 500,
+    nav: false,
+    dots: true,
+    margin: 30,
+    navText: ['', ''],
+    responsive: {
+      0: { items: 1, mouseDrag: false,},
+      480: { items: 2, mouseDrag: true, },
+      767: { items: 3, mouseDrag: true, },
+    },
+  });
+
+  $(".carousel-company").owlCarousel({
+    loop: false,
+    smartSpeed: 500,
+    nav: false,
+    dots: true,
+    margin: 30,
+    navText: ['', ''],
+    responsive: {
+      0: { items: 1, mouseDrag: false,},
+      480: { items: 2, mouseDrag: true, },
+      767: { items: 3, mouseDrag: true, },
+    },
   });
 
   $(".carousel-marka").owlCarousel({
