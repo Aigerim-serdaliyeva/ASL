@@ -535,6 +535,18 @@
     width: 360px;
     flex-shrink: 0;
 
+    &--direction {
+      &::after {
+        background-image: url("../img/direction-back.jpg") !important;
+      }      
+    }
+
+    &--company {
+      &::after {
+        background-image: url("../img/company-back.jpg") !important;
+      }      
+    }
+
     &::after {
       content: "";
       position: absolute;
