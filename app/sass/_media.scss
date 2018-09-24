@@ -47,9 +47,18 @@
 
   .header {
     padding: 5px 0;
-    background-color: $accent;
+    &__aside {
+      background-color: #fff;
+      color: #000;
+      a {
+        color: #000;
+      }
+    }
     &__title {
-      color: #fff;
+      color: #000;
+    }
+    &__top {
+      margin-bottom: 0;
     }
   }
 
@@ -67,9 +76,10 @@
 
 	.main-menu {
     display: none;
-    background-color: $accent;
+    background-color: #fff;
+    border-bottom: 1px solid $accent;
     position: fixed;
-    top: 54px;
+    top: 100px;
     left: 0;
     right: 0;
     text-align: left;
@@ -208,6 +218,10 @@
     }
   }
 
+  .main-menu {
+    top: 79px;
+  }
+
   .form {
     &--horizontal {
       .form {
@@ -262,8 +276,20 @@
       background: transparent;
     }
     &__block {
-      margin: 0 -15px;
+      position: relative;
+      //margin: 0 -15px;
       min-height: 200px;
+      z-index: 0;
+      &::before {
+        content: "";
+        position: absolute;
+        background-color: rgba(#000, .5);
+        top: 0;
+        right: 0px;
+        bottom: 0;
+        left: 0px;
+        z-index: -1;
+      }
     }
     &__content {
       margin-bottom: 20px;
@@ -341,6 +367,10 @@
     .hamburger {
       margin-left: 10px;
     }
+  }
+
+  .main-menu {
+    top: 54px;
   }
 
   .s-main {
