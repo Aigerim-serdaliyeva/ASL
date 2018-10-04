@@ -4,9 +4,9 @@ if(isset($_POST["info"])) {
 
   $method = $_SERVER['REQUEST_METHOD'];
 
-  $project_name = "ASL";
-  $admin_email  = "info@aslogistics.kz, client@marketing-time.kz";
-  $server_mail = "<info@aslogistics.kz>";
+  $project_name = "";
+  $admin_email  = "info@.kz, client@marketing-time.kz";
+  $server_mail = "<info@.kz>";
   $form_subject = "Заявка";
 
 
@@ -16,9 +16,6 @@ if(isset($_POST["info"])) {
 
     foreach ( $_POST as $key => $value ) {
       if ( $value != "") {
-        if (is_array($value)) {
-          $value = implode(',', $value);
-        }
         $message .= "
         " . ( ($c = !$c) ? '<tr>':'<tr style="background-color: #f8f8f8;">' ) . "
           <td style='padding: 10px; border: #e9e9e9 1px solid;'><b>$key</b></td>
