@@ -611,9 +611,10 @@
       bottom: -20px;
       left: 50%;
       transform: translateX(-50%);
+      cursor: default;
       &:active {
         top: auto;
-        bottom: -19px;
+        bottom: -20px;
       }
     }
   }

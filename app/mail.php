@@ -6,7 +6,7 @@ if(isset($_POST["info"])) {
 
   $project_name = "ASL";
   $admin_email  = "info@aslogistics.kz, client@marketing-time.kz";
-  $server_mail = "<info@aslogistics.kz>";
+  $server_mail = "<sale@aslogistics.kz>";
   $form_subject = "Заявка";
 
 
